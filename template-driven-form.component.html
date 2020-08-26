@@ -1,0 +1,88 @@
+<!DOCTYPE html> 
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <h1>Signup Page</h1>
+    <style>
+       body {
+          background-color: aquamarine;
+          text-align: center;
+       }
+       h1 {
+          color:black;
+          text-align: center;
+       }
+       </style>
+ </head>
+
+<body>
+    <h1><strong>Signup Page</strong></h1>
+<form #signupPage="ngForm" (submit)="onSubmit(signupPage)">
+    <div class="form-group">
+        <label for="roles">
+        <b>Role:</b>
+    </label>
+        <select id="roles" name="roles" [(ngModel)]="role" class="form-control" required>
+    <option *ngFor="let role of roles" [value]="role.id">
+        {{role.name}}
+
+    </option>
+    
+    </select>
+    </div><br><br>
+     
+    
+    <label>
+        <b>Id Code:</b>
+        <input name='idCode' [(ngModel)]="idCode" required>
+    </label><br>
+    <br>
+    <br>
+    <br>
+    <label>
+        <b>First Name:</b>
+        <input name='fName' [(ngModel)]="fName" required>
+    </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <label>
+        <b>Last Name:</b>
+        <input name='lName' [(ngModel)]="lName" required>
+    </label><br>
+    <br>
+    <br>
+    <br>
+    <label>
+        <b>E-mail Id:</b>
+        <input name='mail' [(ngModel)]="mail" required>
+    </label><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <label>
+        <div class="form--group">
+            <label for="status">
+            <b>Status:</b>
+        </label>
+            <select id="statusE" name="statusE" [(ngModel)]="status" class="form--control" required>
+        <option *ngFor="let status of statusE" [value]="status.id">
+            {{status.name}}
+    
+        </option>
+        
+        </select>
+        </div>
+         
+        <label>
+            <div class="form---group">
+                <label for="status">
+                <b>Organisation:</b>
+            </label>
+                <select id="org" name="org" [(ngModel)]="organisation" class="form---control" required>
+            <option *ngFor="let organisation of org" [value]="organisation.Organisation_ID">
+                {{organisation.Organisation_Name}}
+        
+            </option>
+            
+            </select>
+            </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!signupPage.valid">Save</button>
+    <button type="reset" class="btn btn-primary">Cancel</button>
+    
+    
